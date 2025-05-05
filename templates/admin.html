@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard | Tourism Portal{% endblock %}
+
+{% block head_extra %}
+    <!-- Add any admin-specific head elements here if needed -->
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">All Bookings</h2>
+
+        {% if bookings %}
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>ID</th>
+                            <th>Service</th>
+                            <th>Destination</th>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for booking in bookings %}
+                        <tr>
+                            <td>{{ booking.id }}</td>
+                            <td>{{ booking.service }}</td>
+                            <td>{{ booking.destination }}</td>
+                            <td>{{ booking.date }}</td>
+                            <td>{{ booking.name }}</td>
+                            <td>{{ booking.email }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="alert alert-info text-center">
+                No bookings found.
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

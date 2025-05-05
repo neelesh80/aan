@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popular Destinations - Tourism Portal</title>
-    <link rel="stylesheet" href="style.css">
+{% extends 'base.html' %}
+
+{% block title %}Popular Destinations - Tourism Portal{% endblock %}
+
+{% block head_extra %}
+    <!-- Link rel="stylesheet" href="style.css" - Removed, styles below -->
     <style>
         .container {
             max-width: 1200px;
@@ -138,8 +137,9 @@
             }
         }
     </style>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     <div class="container">
         <h1>Popular Destinations</h1>
         
@@ -328,7 +328,9 @@
             <p>Jabalpur is a major city in Madhya Pradesh famous for its natural and historical sites. Places like Marble Rocks and Dhuandhar Falls in Bhedaghat are the center of tourist attraction.</p>
         </div>
     </div>
+{% endblock %}
 
+{% block scripts %}
     <script>
         function toggleDropdown(id) {
             document.getElementById(id).classList.toggle("show");
@@ -347,5 +349,4 @@
             }
         }
     </script>
-</body>
-</html>
+{% endblock %}

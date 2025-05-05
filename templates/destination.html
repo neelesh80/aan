@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popular Destinations - Tourism Portal</title>
-    <link rel="stylesheet" href="style.css">
+{% extends 'base.html' %}
+
+{% block title %}Destination Maps - Tourism Portal{% endblock %}
+
+{% block head_extra %}
+    <!-- Link rel="stylesheet" href="style.css" - This likely needs to be removed or integrated into base.html's style block -->
+    <!-- Or use url_for('static', filename='style.css') if it's a separate file -->
     <style>
         
         
@@ -87,8 +87,9 @@
             }
         }
     </style>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     <div class="container">
         <h1>Popular Destinations</h1>
         
@@ -139,9 +140,10 @@
             <p>Jabalpur is a major city in Madhya Pradesh famous for its natural and historical sites. Places like Marble Rocks and Dhuandhar Falls in Bhedaghat are the center of tourist attraction.</p>
         </div>
     </div>
+{% endblock %}
 
+{% block scripts %}
     <!-- Google Maps API Script -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMaps" async defer></script>
     
     <script>
         // Dropdown Toggle Function

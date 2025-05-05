@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Login | Tourism Portal{% endblock %}
+
+{% block head_extra %}
+    <style>
+        /* Override body styles from base.html for centering */
+        body.login-page {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center; /* Center content vertically */
+        }
+
+        /* Login Container Specifics */
+        .login-container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            max-width: 500px; /* Limit width for login form */
+
+        /* Card Styling */
+        .card.shadow { box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; }
+        .card-title { font-weight: 700; color: #343a40; }
+
+        /* Form Styling */
+        .form-label { font-weight: 500; }
+
+        /* Link Styling */
+        a { color: #0d6efd; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+{% endblock %}
+
+{% block body_attributes %}class="d-flex flex-column min-vh-100 login-page"{% endblock %}
+
+{% block content %}
+    <div class="container login-container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h3 class="card-title text-center mb-4">Login</h3>
+                        <form method="POST" action="{{ url_for('login') }}">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" name="username" class="form-control" id="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control" id="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+                        </div>
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <div class="alert alert-warning mt-3">
+                                    {% for message in messages %}
+                                        <p class="mb-0">{{ message }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
