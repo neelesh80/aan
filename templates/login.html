@@ -1,12 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login | Tourism Portal</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-    <div class="container mt-5">
+{% extends 'base.html' %}
+
+{% block title %}Login | Tourism Portal{% endblock %}
+
+{% block head_extra %}
+    <style>
+        /* Override body styles from base.html for centering */
+        body.login-page {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center; /* Center content vertically */
+        }
+
+        /* Login Container Specifics */
+        .login-container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            max-width: 500px; /* Limit width for login form */
+
+        /* Card Styling */
+        .card.shadow { box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; }
+        .card-title { font-weight: 700; color: #343a40; }
+
+        /* Form Styling */
+        .form-label { font-weight: 500; }
+
+        /* Link Styling */
+        a { color: #0d6efd; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+{% endblock %}
+
+{% block body_attributes %}class="d-flex flex-column min-vh-100 login-page"{% endblock %}
+
+{% block content %}
+    <div class="container login-container">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card shadow">
@@ -40,5 +70,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

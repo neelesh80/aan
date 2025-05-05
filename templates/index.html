@@ -1,49 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jabalpur & Narsinghpur Tourism</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="static/style.css" />
-  </head>
-  <body>
-    <!-- Header -->
-    <header>
-      <div class="container">
-        <a class="logo" href="#">Jabalpur & Narsinghpur Tourism</a>
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#destinations">Destinations</a>
-          <a href="#services">Services</a>
-          <a href="#booking">Booking</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <a
-          href="{{url_for(
-                'login')}}"
-          class="btn"
-          >Login</a
-        >
-        <div class="search-bar">
-          <input
-            type="text"
-            placeholder="Search destinations..."
-            aria-label="Search destinations"
-          />
-          <button class="btn">Search</button>
-        </div>
-      </div>
-    </header>
+{% extends 'base.html' %}
 
+{% block title %}Home | Jabalpur & Narsinghpur Tourism{% endblock %}
+
+{% block head_extra %}
+    <!-- Link to your custom CSS if needed, base.html already includes style.css -->
+{% endblock %}
+
+{% block content %}
     <!-- Hero Section -->
     <section id="home">
       <img
@@ -53,230 +16,227 @@
       <div class="overlay">
         <h1>Explore Jabalpur & Narsinghpur Tourism</h1>
         <p>Discover new places with us</p>
-        <a class="btn" href="destinations.html">Get Started</a>
+        <a class="btn btn-primary btn-lg" href="#destinations">Get Started</a>
       </div>
     </section>
 
     <!-- Destinations Section -->
-    <section id="destinations">
+    <section id="destinations" class="py-5">
       <div class="container">
-        <h2>Popular Destinations</h2>
-        <div class="destinations-grid">
-          <div class="destination-card">
-            <img src="dada_maharaj.jpg" alt="Dada Maharaj Mandir Temple" />
-            <div class="destination-overlay">Dada Maharaj Mandir Temple</div>
+        <h2 class="text-center mb-4">Popular Destinations</h2>
+        <!-- Using Bootstrap grid for responsiveness -->
+        <div class="row g-4 destinations-grid">
+          <div class="col-md-4 col-sm-6">
+            <div class="destination-card">
+              <img src="{{ url_for('static', filename='img/dada_maharaj.jpg') }}" alt="Dada Maharaj Mandir Temple" class="img-fluid"/>
+              <div class="destination-overlay">Dada Maharaj Mandir Temple</div>
+            </div>
           </div>
-          <div class="destination-card">
-            <img src="jhoteswar_mandir.jpg" alt="Jhoteswar Temple" />
-            <div class="destination-overlay">Jhoteswar Temple</div>
+          <div class="col-md-4 col-sm-6">
+            <div class="destination-card">
+              <!-- Assuming consistent path -->
+              <img src="{{ url_for('static', filename='img/jhoteswar_mandir.jpg') }}" alt="Jhoteswar Temple" class="img-fluid"/>
+              <div class="destination-overlay">Jhoteswar Temple</div>
+            </div>
           </div>
-          <div class="destination-card">
-            <img src="narsingh_mandir.jpg" alt="Narsigh Mandir Temple" />
-            <div class="destination-overlay">Narsigh Mandir Temple</div>
+          <div class="col-md-4 col-sm-6">
+            <div class="destination-card">
+              <img src="{{ url_for('static', filename='img/narsingh_mandir.jpg') }}" alt="Narsigh Mandir Temple" class="img-fluid"/>
+              <div class="destination-overlay">Narsigh Mandir Temple</div>
+            </div>
           </div>
-          <div class="destination-card">
-            <img src="ram_mandir.jpg" alt="Ram Mandir Temple" />
-            <div class="destination-overlay">Ram Mandir Temple</div>
+          <div class="col-md-4 col-sm-6">
+            <div class="destination-card">
+              <img src="{{ url_for('static', filename='img/ram_mandir.jpg') }}" alt="Ram Mandir Temple" class="img-fluid"/>
+              <div class="destination-overlay">Ram Mandir Temple</div>
+            </div>
           </div>
-          <div class="destination-card">
-            <img src="ganesh_mandir.jpg" alt="Ganesh Mandir Temple" />
-            <div class="destination-overlay">Ganesh Mandir Temple</div>
+          <div class="col-md-4 col-sm-6">
+            <div class="destination-card">
+              <img src="{{ url_for('static', filename='img/ganesh_mandir.jpg') }}" alt="Ganesh Mandir Temple" class="img-fluid"/>
+              <div class="destination-overlay">Ganesh Mandir Temple</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services">
+    <section id="services" class="py-5 bg-light">
       <div class="container">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <i class="fas fa-plane-departure"></i>
-            <h3>Flight Booking</h3>
-            <a class="btn" href="https://www.in.cheapflights.com/"
-              >Learn More</a
-            >
-            <p>Book flights to your favorite destinations with ease.</p>
+        <h2 class="text-center mb-4">Our Services</h2>
+        <div class="row text-center g-4 services-grid">
+          <div class="col-lg-4">
+            <div class="service-card p-4 border rounded shadow-sm">
+              <i class="fas fa-plane-departure fa-3x text-primary mb-3"></i>
+              <h3>Flight Booking</h3>
+              <p>Book flights to your favorite destinations with ease.</p>
+              <a class="btn btn-outline-primary" href="https://www.in.cheapflights.com/" target="_blank" rel="noopener noreferrer">Learn More</a>
+            </div>
           </div>
-          <div class="service-card">
-            <i class="fas fa-hotel"></i>
-            <h3>Hotel Booking</h3>
-            <a class="btn" href="https://www.tripadvisor.in/">Learn More</a>
-            <p>Find and book the best hotels at your destination.</p>
+          <div class="col-lg-4">
+            <div class="service-card p-4 border rounded shadow-sm">
+              <i class="fas fa-hotel fa-3x text-primary mb-3"></i>
+              <h3>Hotel Booking</h3>
+              <p>Find and book the best hotels at your destination.</p>
+              <a class="btn btn-outline-primary" href="https://www.tripadvisor.in/" target="_blank" rel="noopener noreferrer">Learn More</a>
+            </div>
           </div>
-          <div class="service-card">
-            <i class="fas fa-car"></i>
-            <h3>Car Rentals</h3>
-            <a class="btn" href="https://evsmartcab.com/">Learn More</a>
-            <p>Rent cars for your travel needs at affordable prices.</p>
+          <div class="col-lg-4">
+            <div class="service-card p-4 border rounded shadow-sm">
+              <i class="fas fa-car fa-3x text-primary mb-3"></i>
+              <h3>Car Rentals</h3>
+              <p>Rent cars for your travel needs at affordable prices.</p>
+              <a class="btn btn-outline-primary" href="https://evsmartcab.com/" target="_blank" rel="noopener noreferrer">Learn More</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Booking Section -->
-    <section id="booking">
+    <section id="booking" class="py-5">
       <div class="container">
-        <h2>Book Your Trip</h2>
-        <form class="booking-form">
-          <div class="form-group">
-            <label class="form-label" for="service">Select Service</label>
-            <select class="form-control" id="service" required>
+        <h2 class="text-center mb-4">Book Your Trip</h2>
+        <!-- Add method and action for form submission -->
+        <form class="booking-form row g-3 justify-content-center" method="POST" action="{{ url_for('handle_booking') }}">
+          <div class="col-md-6 col-lg-4">
+            <label class="form-label" for="booking-service">Select Service</label>
+            <select class="form-select" id="booking-service" name="service" required>
               <option value="">--Select a Service--</option>
               <option value="flight">Flight Booking</option>
               <option value="hotel">Hotel Booking</option>
               <option value="car">Car Rentals</option>
             </select>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="destination">Destination</label>
+          <div class="col-md-6 col-lg-4">
+            <label class="form-label" for="booking-destination">Destination</label>
             <input
               class="form-control"
-              id="destination"
+              id="booking-destination"
+              name="destination"
               placeholder="Enter your destination"
               type="text"
               required
             />
           </div>
-          <div class="form-group">
-            <label class="form-label" for="date">Date</label>
-            <input class="form-control" id="date" type="date" required />
+          <div class="col-md-6 col-lg-4">
+            <label class="form-label" for="booking-date">Date</label>
+            <input class="form-control" id="booking-date" name="date" type="date" required />
           </div>
-          <div class="form-group">
-            <label class="form-label" for="name">Your Name</label>
+          <div class="col-md-6 col-lg-4">
+            <label class="form-label" for="booking-name">Your Name</label>
             <input
               class="form-control"
-              id="name"
+              id="booking-name"
+              name="name"
               placeholder="Enter your name"
               type="text"
               required
             />
           </div>
-          <div class="form-group">
-            <label class="form-label" for="email">Your Email</label>
+          <div class="col-md-6 col-lg-4">
+            <label class="form-label" for="booking-email">Your Email</label>
             <input
               class="form-control"
-              id="email"
+              id="booking-email"
+              name="email"
               placeholder="Enter your email"
               type="email"
               required
             />
           </div>
-          <button class="btn" type="submit">Book Now</button>
+          <div class="col-12 text-center">
+             <button class="btn btn-success btn-lg" type="submit">Book Now</button>
+          </div>
         </form>
       </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials">
+    <section id="testimonials" class="py-5 bg-light">
       <div class="container">
-        <h2>What Our Clients Say</h2>
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <img
-              alt="Portrait of a happy client"
-              src="https://storage.googleapis.com/a1aa/image/Kz21upGtU-VLldPOfz2j4xZwC-CtqPtdARiyHuMxRSY.jpg"
-            />
-            <p>"Amazing experience! The best travel agency I've ever used."</p>
-            <h3>John Doe</h3>
+        <h2 class="text-center mb-4">What Our Clients Say</h2>
+        <div class="row g-4 testimonials-grid">
+          <div class="col-md-4">
+            <div class="testimonial-card card text-center shadow-sm">
+              <img
+                alt="Portrait of John Doe"
+                src="https://storage.googleapis.com/a1aa/image/Kz21upGtU-VLldPOfz2j4xZwC-CtqPtdARiyHuMxRSY.jpg"
+                class="card-img-top rounded-circle w-50 mx-auto mt-3"
+              />
+              <div class="card-body">
+                <p class="card-text fst-italic">"Amazing experience! The best travel agency I've ever used."</p>
+                <h5 class="card-title mt-3">John Doe</h5>
+              </div>
+            </div>
           </div>
-          <div class="testimonial-card">
-            <img
-              alt="Portrait of a satisfied client"
-              src="https://storage.googleapis.com/a1aa/image/NgJ_UnMh21pV1QezeClFRHbS8bgxFJWQf5BRF1RJQiY.jpg"
-            />
-            <p>"Highly recommend! They made my trip unforgettable."</p>
-            <h3>Jane Smith</h3>
+          <div class="col-md-4">
+            <div class="testimonial-card card text-center shadow-sm">
+              <img
+                alt="Portrait of Jane Smith"
+                src="https://storage.googleapis.com/a1aa/image/NgJ_UnMh21pV1QezeClFRHbS8bgxFJWQf5BRF1RJQiY.jpg"
+                class="card-img-top rounded-circle w-50 mx-auto mt-3"
+              />
+              <div class="card-body">
+                <p class="card-text fst-italic">"Highly recommend! They made my trip unforgettable."</p>
+                <h5 class="card-title mt-3">Jane Smith</h5>
+              </div>
+            </div>
           </div>
-          <div class="testimonial-card">
-            <img
-              alt="Portrait of a delighted client"
-              src="https://storage.googleapis.com/a1aa/image/vGX8w-u1nrEQD4xwKojhah_Tqz35ohQVSS7xoIYBywA.jpg"
-            />
-            <p>"Excellent service and great attention to detail."</p>
-            <h3>Emily Johnson</h3>
+          <div class="col-md-4">
+            <div class="testimonial-card card text-center shadow-sm">
+              <img
+                alt="Portrait of Emily Johnson"
+                src="https://storage.googleapis.com/a1aa/image/vGX8w-u1nrEQD4xwKojhah_Tqz35ohQVSS7xoIYBywA.jpg"
+                class="card-img-top rounded-circle w-50 mx-auto mt-3"
+              />
+              <div class="card-body">
+                <p class="card-text fst-italic">"Excellent service and great attention to detail."</p>
+                <h5 class="card-title mt-3">Emily Johnson</h5>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="py-5">
       <div class="container">
-        <h2>Get in Touch</h2>
-        <form class="contact-form">
-          <div class="form-group">
+        <h2 class="text-center mb-4">Get in Touch</h2>
+        <form class="contact-form row g-3 justify-content-center" method="POST" action="{{ url_for('handle_contact') }}">
+          <div class="col-md-6">
             <input
               class="form-control"
+              name="contact_name"
               placeholder="Your Name"
               type="text"
               required
             />
           </div>
-          <div class="form-group">
+          <div class="col-md-6">
             <input
               class="form-control"
+              name="contact_email"
               placeholder="Your Email"
               type="email"
               required
             />
           </div>
-          <div class="form-group">
+          <div class="col-12">
             <textarea
-              class="form-control"
-              placeholder="Your Message"
-              required
+             
             ></textarea>
           </div>
-          <button class="btn" type="submit">Send Message</button>
+          <div class="col-12 text-center">
+            <button class="btn btn-primary btn-lg" type="submit">Send Message</button>
+          </div>
         </form>
       </div>
     </section>
+{% endblock %}
 
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-column">
-            <h3>About Us</h3>
-            <p>
-              Jabalpur & Narsinghpur Tourism is your trusted travel partner. We
-              help you explore the best destinations with hassle-free booking
-              and support.
-            </p>
-          </div>
-          <div class="footer-column">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#destinations">Destinations</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#booking">Booking</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>Contact</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Jabalpur, MP, India</p>
-            <p><i class="fas fa-envelope"></i> support@tourism.in</p>
-            <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
-          </div>
-          <div class="footer-column">
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>
-            &copy; 2025 Jabalpur & Narsinghpur Tourism. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
+{% block scripts %}
+    <!-- Add any page-specific JavaScript here -->
+{% endblock %}
